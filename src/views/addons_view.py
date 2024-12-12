@@ -20,10 +20,16 @@ class AddonsView:
         print(f'Para volver al menú anterior escriba la letra [{Fore.YELLOW}V{Fore.RESET}]')
         self.display_divider()
 
-    def display_title_menu(self, name, options, input_type='número'):
+    def display_title_menu_dynamic(self, title, options, input_type='número'):
         # Muestra el título y las opciones de un menú.
         self.display_divider()
-        print(f'Menú {name}, Escriba {input_type} de opción ({Fore.YELLOW}{options}{Fore.RESET}):'.center(50))
+        print(f'Menú {title}, Escriba {input_type} de opción ({Fore.YELLOW}{options}{Fore.RESET}):'.center(50))
+        self.display_divider()
+
+    def display_title_menu(self, title):
+        # Muestra el título y las opciones de un menú.
+        self.display_divider()
+        print(f'Menú {title}, Escriba la letra ({Fore.YELLOW}V{Fore.RESET}) para volver:'.center(50))
         self.display_divider()
 
     def display_confirm(self, action):
@@ -84,7 +90,7 @@ class AddonsView:
         self.display_divider()
     
     def display_menu(self):
-        self.display_title_menu(f'{Back.YELLOW}{Fore.BLACK}E-commerce{Back.RESET}{Fore.RESET}', '1-7')
+        self.display_title_menu_dynamic(f'{Back.YELLOW}{Fore.BLACK}E-commerce{Back.RESET}{Fore.RESET}', '1-7')
         self.display_divider()
         print(f'\t [{Fore.YELLOW}1{Fore.RESET}] {Fore.GREEN}Agregar Producto')
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.WHITE}Listar Productos')
@@ -96,7 +102,7 @@ class AddonsView:
         self.display_divider()
 
     def display_dynamic_selector(self, selector):
-        self.display_title_menu(f'{selector} Producto', '1-4')
+        self.display_title_menu_dynamic(f'{selector} Producto', '1-4')
         self.display_divider()
         print(f'\t [{Fore.YELLOW}1{Fore.RESET}] {Fore.GREEN}{selector} Producto por ID')
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.WHITE}{selector} Producto por CÓDIGO')
@@ -105,7 +111,7 @@ class AddonsView:
         self.display_divider()
     
     def display_report_menu(self):        
-        self.display_title_menu('REPORTES de Productos', '1-3')
+        self.display_title_menu_dynamic('REPORTES de Productos', '1-3')
         self.display_divider()
         print(f'\t [{Fore.YELLOW}1{Fore.RESET}] {Fore.YELLOW}Productos Bajo de Stock')
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.RED}Productos ELIMINADOS')

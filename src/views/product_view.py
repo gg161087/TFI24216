@@ -17,8 +17,7 @@ class ProductView:
 
     def table_products(self, title, options, paginated, current_page, products, total_pages): 
         addons_view.clear_screen()        
-        addons_view.display_title_menu(title, options, 'letra')
-        addons_view.display_back_menu()
+        addons_view.display_title_menu_dynamic(title, options, 'letra')
         self.display_table_headers()       
         for product in paginated[current_page]:
             self.display_product(product)
@@ -61,8 +60,8 @@ class ProductView:
                     addons_view.display_divider()
             elif choice.lower() == 'v':
                 back = True
-                addons_view.clear_screen()  
-                addons_view.display_menu()         
+                addons_view.clear_screen()
+                addons_view.display_menu()              
                 break
             else:            
                 self.table_products(title, options, paginated, current_page, products, total_pages)            

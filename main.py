@@ -9,5 +9,6 @@ if __name__ == "__main__":
     initialize_db('products', 'UNIQUE')
     # Inicializa la tabla para Productos Eliminados, aca si puede haber varios productos con el mismo código
     initialize_db('products_removed', '')
+    # Agrega productos en modo ejemplo para poder probar el programa, COMENTAR para que no agregue datos.
     seeder()
     menu_view.main_menu()
