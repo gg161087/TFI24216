@@ -87,7 +87,7 @@ class AddonsView:
     
     def show_main_menu(self): 
         self.show_divider()       
-        print(f'Menú {Back.YELLOW}{Fore.BLACK}E-commerce{Back.RESET}{Fore.RESET}, Escriba número de opción ({Fore.YELLOW}1-7{Fore.RESET}):'.center(50))
+        print(f'Menú {Back.YELLOW}{Fore.BLACK}E-commerce Console{Back.RESET}{Fore.RESET}, Escriba número de opción ({Fore.YELLOW}1-7{Fore.RESET}):'.center(50))
         self.show_divider()
         print(f'\t [{Fore.YELLOW}1{Fore.RESET}] {Fore.GREEN}Agregar Producto')
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.WHITE}Listar Productos')
