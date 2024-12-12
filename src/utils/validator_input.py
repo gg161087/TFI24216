@@ -33,7 +33,7 @@ def validated_input(prompt, current_value, validation_func=None, allow_skip=True
                 return current_value
 
             if validation_func and not validation_func(user_input):                               
-                addons_view.display_invalid_data()
+                addons_view.show_invalid_data()
             else:
                 input_valid = True  # Cambiar la bandera a True si la entrada es válida
                 return user_input

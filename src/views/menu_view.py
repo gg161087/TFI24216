@@ -13,7 +13,7 @@ product_removed_controller = ProductRemovedController()
 class MenuView:
     def main_menu(self):
         addons_view.clear_screen()
-        addons_view.display_menu()
+        addons_view.show_main_menu()
         while True:       
             prompt = input('\t Seleccione una opción: ').strip()
             match prompt:
@@ -36,66 +36,70 @@ class MenuView:
                     addons_view.clear_screen()
                     self.remove_product_menu()
                 case '7':
-                    addons_view.display_closing_program()
+                    addons_view.show_closing_program()
                     break
                 case _:
                     addons_view.clear_screen()
-                    addons_view.display_menu()
-                    addons_view.display_invalid_option()            
+                    addons_view.show_main_menu()
+                    addons_view.show_invalid_option()            
 
     def search_product_menu(self):
         addons_view.clear_screen()
-        addons_view.display_dynamic_selector('Buscar')
+        addons_view.show_dynamic_menu('BUSCAR')
         while True:                    
             prompt = input('\t Seleccione una opción: ').strip()
             match prompt:
                 case '1':
                     addons_view.clear_screen()
-                    product_controller.search_product_dynamic('ID')
-                    # search_product_controller('ID')                     
+                    product_controller.dynamic_product_controller('buscar', 'id')
+                    #product_controller.search_product_controller('ID')                                       
                 case '2':
                     addons_view.clear_screen()
-                    product_controller.search_product_dynamic('CÓDIGO') 
+                    product_controller.dynamic_product_controller('buscar', 'código')
+                    #product_controller.search_product_controller('CÓDIGO') 
                 case '3':  
                     addons_view.clear_screen()
-                    product_controller.search_product_dynamic('NOMBRE')
+                    product_controller.dynamic_product_controller('buscar', 'nombre')
+                    #product_controller.search_product_controller('NOMBRE')
                 case '4':
                     addons_view.clear_screen()
-                    addons_view.display_menu()                                      
+                    addons_view.show_main_menu()                                      
                     break
                 case _:
                     addons_view.clear_screen()
-                    addons_view.display_dynamic_selector('Buscar')                    
-                    addons_view.display_invalid_option() 
+                    addons_view.show_dynamic_menu('BUSCAR')                    
+                    addons_view.show_invalid_option() 
             
-
     def update_product_menu(self):
         addons_view.clear_screen()
-        addons_view.display_dynamic_selector('Buscar y Actualizar')
+        addons_view.show_dynamic_menu('ACTUALIZAR')
         while True:        
             prompt = input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
-                    product_controller.update_product_dynamic('ID')                   
+                    product_controller.dynamic_product_controller('actualizar', 'id')
+                    #product_controller.update_product_controller('ID')                   
                 case '2':
                     addons_view.clear_screen()
-                    product_controller.update_product_dynamic('CÓDIGO')
+                    product_controller.dynamic_product_controller('actualizar', 'código')
+                    #product_controller.update_product_controller('CÓDIGO')
                 case '3':  
                     addons_view.clear_screen()
-                    product_controller.update_product_dynamic('NOMBRE')
+                    product_controller.dynamic_product_controller('actualizar', 'nombre')
+                    #product_controller.update_product_controller('NOMBRE')
                 case '4':
                     addons_view.clear_screen() 
-                    addons_view.display_menu()                                           
+                    addons_view.show_main_menu()                                           
                     break
                 case _:
                     addons_view.clear_screen()
-                    addons_view.display_dynamic_selector('Buscar y Actualizar')
-                    addons_view.display_invalid_option() 
+                    addons_view.show_dynamic_menu('ACTUALIZAR')
+                    addons_view.show_invalid_option() 
 
     def report_product_menu(self):
         addons_view.clear_screen()
-        addons_view.display_report_menu()
+        addons_view.show_report_menu()
         while True:
             prompt = input('\t Seleccione una opción: ')
             match prompt:
@@ -107,34 +111,34 @@ class MenuView:
                     product_removed_controller.list_products_removed()
                 case '3':
                     addons_view.clear_screen()
-                    addons_view.display_menu()                    
+                    addons_view.show_main_menu()                    
                     break
                 case _:
                     addons_view.clear_screen()
-                    addons_view.display_report_menu()
-                    addons_view.display_invalid_option() 
+                    addons_view.show_report_menu()
+                    addons_view.show_invalid_option() 
 
     def remove_product_menu(self):
         addons_view.clear_screen()    
-        addons_view.display_dynamic_selector('Eliminar')
+        addons_view.show_dynamic_menu('ELIMINAR')
         while True:
             prompt = input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
-                    product_controller.delete_product_dynamic('ID')                  
+                    product_controller.dynamic_product_controller('eliminar', 'id')                
                 case '2':
                     addons_view.clear_screen()
-                    product_controller.delete_product_dynamic('CÓDIGO')
+                    product_controller.dynamic_product_controller('eliminar', 'código')
                 case '3':  
                     addons_view.clear_screen()
-                    product_controller.delete_product_dynamic('NOMBRE')
-                case '4':
+                    product_controller.dynamic_product_controller('eliminar', 'nombre')
+                case '4':#
                     addons_view.clear_screen()
-                    addons_view.display_menu()                                           
+                    addons_view.show_main_menu()                                           
                     break
                 case _:
                     addons_view.clear_screen()
-                    addons_view.display_dynamic_selector('Eliminar')
-                    addons_view.display_invalid_option()
+                    addons_view.show_dynamic_menu('ELIMINAR')
+                    addons_view.show_invalid_option()
  
