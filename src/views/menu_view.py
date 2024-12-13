@@ -13,9 +13,9 @@ product_removed_controller = ProductRemovedController()
 class MenuView:
     def main_menu(self):
         addons_view.clear_screen()
-        addons_view.show_main_menu()
+        addons_view.show_main_menu()        
         while True:       
-            prompt = input('\t Seleccione una opción: ').strip()
+            prompt = addons_view.show_input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
@@ -47,7 +47,7 @@ class MenuView:
         addons_view.clear_screen()
         addons_view.show_dynamic_menu('BUSCAR')
         while True:                    
-            prompt = input('\t Seleccione una opción: ').strip()
+            prompt = addons_view.show_input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
@@ -74,7 +74,7 @@ class MenuView:
         addons_view.clear_screen()
         addons_view.show_dynamic_menu('ACTUALIZAR')
         while True:        
-            prompt = input('\t Seleccione una opción: ')
+            prompt = addons_view.show_input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
@@ -101,7 +101,7 @@ class MenuView:
         addons_view.clear_screen()
         addons_view.show_report_menu()
         while True:
-            prompt = input('\t Seleccione una opción: ')
+            prompt = addons_view.show_input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()
@@ -122,7 +122,7 @@ class MenuView:
         addons_view.clear_screen()    
         addons_view.show_dynamic_menu('ELIMINAR')
         while True:
-            prompt = input('\t Seleccione una opción: ')
+            prompt = addons_view.show_input('\t Seleccione una opción: ')
             match prompt:
                 case '1':
                     addons_view.clear_screen()

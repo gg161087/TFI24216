@@ -18,18 +18,19 @@ class AddonsView:
         # Muestra el título y las opciones de un menú.
         title = title.upper()
         self.show_divider()
-        print(f'Menú {title}, Escriba {input_type} de opción ({Fore.YELLOW}{options}{Fore.RESET}):'.center(50))
+        print(f'Menú {Back.GREEN}{Fore.BLACK} {title} {Back.RESET}{Fore.RESET}, Escriba {input_type} de opción ({Fore.YELLOW}{options}{Fore.RESET}):'.center(50))
         self.show_divider()
 
     def show_title_menu(self, title):
         # Muestra el título y las opciones de un menú.
         title = title.upper()
-        self.show_divider()
-        print(f'Menú {title}, Escriba la letra ({Fore.YELLOW}V{Fore.RESET}) para volver:'.center(50))
+        self.show_divider()        
+        print(f'Menú {Back.GREEN}{Fore.BLACK} {title} {Back.RESET}{Fore.RESET}, Escriba la letra ({Fore.YELLOW}V{Fore.RESET}) para volver:'.center(50))
         self.show_divider()
 
     def show_confirm(self, action):
         # Muestra un mensaje de confirmación para una acción específica.
+        action = action.upper()
         self.show_divider()
         print(f'Desea {action}: [{Fore.YELLOW}S{Fore.RESET}] Si | [{Fore.YELLOW}N{Fore.RESET}] No')
         self.show_divider()
@@ -60,13 +61,25 @@ class AddonsView:
     def show_invalid_code(self):
         # Muestra un mensaje de requisitos de code.
         self.show_divider() 
-        print('El CÓDIGO debe ser numérico y de 4 cifras.')
+        print('El CÓDIGO debe ser numérico, entre 4 y 6 cifras.')
         self.show_divider() 
 
     def show_invalid_name(self):
         # Muestra un mensaje de requisitos de nombre.
         self.show_divider()
-        print('El NOMBRE del producto debe tener al menos 3 caracteres.')
+        print('El NOMBRE debe tener menos 3 letras.')
+        self.show_divider()
+
+    def show_invalid_price(self):
+        # Muestra un mensaje de requisitos del precio.
+        self.show_divider()
+        print('El PRECIO debe ser numérico mayor que 0.')
+        self.show_divider()
+
+    def show_invalid_stock(self):
+        # Muestra un mensaje de requisitos del stock.
+        self.show_divider()
+        print('El STOCK debe ser numérico mayor o igual a 0.') 
         self.show_divider()
 
     def show_closing_program(self):
@@ -87,7 +100,8 @@ class AddonsView:
     
     def show_main_menu(self): 
         self.show_divider()       
-        print(f'Menú {Back.YELLOW}{Fore.BLACK}E-commerce Console{Back.RESET}{Fore.RESET}, Escriba número de opción ({Fore.YELLOW}1-7{Fore.RESET}):'.center(50))
+        print(f'Menú {Back.YELLOW}{Fore.BLACK} E-commerce Console {Back.RESET}{Fore.RESET}, Escriba número de opción ({Fore.YELLOW}1-7{Fore.RESET}):'.center(50))
+        self.show_divider()
         self.show_divider()
         print(f'\t [{Fore.YELLOW}1{Fore.RESET}] {Fore.GREEN}Agregar Producto')
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.WHITE}Listar Productos')
@@ -115,3 +129,8 @@ class AddonsView:
         print(f'\t [{Fore.YELLOW}2{Fore.RESET}] {Fore.RED}Productos ELIMINADOS')
         print(f'\t [{Fore.YELLOW}3{Fore.RESET}] Volver')
         self.show_divider()
+
+    def show_input(self, text):
+        self.show_divider()
+        prompt = input(f'{text}').strip()
+        return prompt

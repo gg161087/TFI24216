@@ -10,7 +10,7 @@ class ProductRemovedController:
     def list_products_removed(self):        
         products = product_removed_model.read_all_products_removed()
         if products:
-            product_view.show_products(products, 'Productos Eliminados')
+            product_view.show_products(products, 'Productos Eliminados', report=True)
         else:
             addons_view.clear_screen()
             addons_view.show_report_menu()
